@@ -5,8 +5,17 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-root',
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
+
 export class AppComponent {
   title = 'my-first-app';
 }
+
+/**
+
+selector ->  When Angular encounters <app-root></app-root> in your index.html (or another component's template), it knows to render this AppComponent there.
+
+imports ->  This property is used in standalone components (which this component appears to be, as it uses imports directly in @Component instead of NgModule). It declares other standalone components, directives, or pipes that this component needs to use in its template.
+
+ */

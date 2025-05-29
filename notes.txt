@@ -1,0 +1,16 @@
+* tsconfig.json - main tsconfig file -  The main, base configuration for your entire TypeScript 
+project, defining general compiler options and project files.
+
+* tsconfig.app.json - configure app compilation - Extends tsconfig.json, adding or overriding settings 
+specifically for your main application's source code.
+
+* tsconfig.spec.json - for test specification - Extends tsconfig.json, adding or overriding settings
+specifically for your test files (e.g., unit tests, integration tests).
+ 
+* angular.json is the configuration file for your Angular workspace and projects
+tells the Angular CLI how to build, serve, test, and manage your Angular applications and libraries.
+
+These files are used to configure the TypeScript compiler (tsc) and define how your 
+TypeScript code should be compiled into JavaScript
+
+___________________________________________________________________________________
