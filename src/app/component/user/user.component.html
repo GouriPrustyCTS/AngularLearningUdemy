@@ -8,10 +8,10 @@
     /> -->
     <!-- using getters reference(act as property ref.) from the class -->
     <img
-      [src]="imagePath"
-      [alt]="selectedUser.name"
+      [src]="imagePath()"
+      [alt]="selectedUser().name"
     />
     <!-- this is called data binding (string interpolation) - only used btwn tags -->
-    <span>{{ selectedUser.name }} works!</span>
+    <span>{{ selectedUser().name }} works!</span>
   </button>
 </div>

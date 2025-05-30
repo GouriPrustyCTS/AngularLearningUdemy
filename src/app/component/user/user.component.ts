@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, computed } from '@angular/core';
 import { DUMMY_USERS } from '../../util/dummy-users';
 
 @Component({
@@ -9,14 +9,17 @@ import { DUMMY_USERS } from '../../util/dummy-users';
 })
 export class UserComponent {
   //selectedUser - by default it is public or if private then it cant be accessed - public property of the class - whatever u declare here will be available to the html template to access this
-  selectedUser = DUMMY_USERS[0];
+  selectedUser = signal(DUMMY_USERS[0]); // signals are like useState() hook in react
 
-  get imagePath() {
-    return 'assets/users/' + this.selectedUser.avatar;
-  }
+  // computed() method is used if signal is implemented
+  imagePath = computed(() => 'assets/users/' + this.selectedUser().avatar);
+
+  // get imagePath() {
+  //   return 'assets/users/' + this.selectedUser.avatar;
+  // }
 
   onSelectUser() {
     console.log('Clicked');
-    this.selectedUser = DUMMY_USERS[1];
+    this.selectedUser.set(DUMMY_USERS[1]);  // setState()
   }
 }
