@@ -1,4 +1,4 @@
-import { Component,  Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -7,19 +7,23 @@ import { Component,  Input } from '@angular/core';
   styleUrl: './user.component.css',
 })
 export class UserComponent {
-  @Input({required:true}) avatar!: string;  // this means parent must pass this or else warning in the parent template
+  @Input({ required: true }) avatar!: string; // this means parent must pass this or else warning in the parent template
   @Input() name!: string;
+  @Input() id!: string;
+
+  @Output() select = new EventEmitter();
 
   get imagePath() {
     return 'assets/users/' + this.avatar;
   }
 
-  onSelectUser() {}
+  onSelectUser() {
+    this.select.emit(this.id);
+  }
 }
 
-
-
 /**
+ * variables inside the class - properties
  * @Input() decorator in Angular is used for passing data from a parent component to a child component. - variable name should be same as parent template as it is coming from there. - and then from here goes to the templateURL to render
  *
  * avatar!: string;, optional -  you're telling TypeScript, "I know this property (avatar) will eventually be assigned a value, even though I'm not assigning it here in the constructor or at the point of declaration. Trust me, it will be initialized.
@@ -31,4 +35,6 @@ export class UserComponent {
   name = input.required<string>();
 
   imagePath = computed(() => 'assets/users/' + this.avatar());
+
+  when this method is called onSelectUser - it will emit with id by the eventemitter
  */

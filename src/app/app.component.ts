@@ -12,6 +12,10 @@ import { DUMMY_USERS } from './util/dummy-users';
 })
 export class AppComponent {
   users = DUMMY_USERS;
+
+  onSelectUser(id: string) {
+    console.log(`Selected user id : ${id}`);
+  }
 }
 
 /**
@@ -22,4 +26,6 @@ imports ->  This property is used in standalone components (which this component
 if any other components needs to be used inside this current app component then u mention it
 
 what ever variable is written inside the class those are utillised by child componenet or templateUrl to render
+
+when the event emit is 
  */
