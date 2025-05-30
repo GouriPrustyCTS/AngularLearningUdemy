@@ -1,11 +1,12 @@
 <div>
-  <button>
+    <!-- // event binding; key - event and value - method name (call them) inside class -->
+  <button (click)="onSelectUser()">
     <!-- property binding -->
     <!-- <img
       [src]="'assets/users/' + selectedUser.avatar"
       [alt]="selectedUser.name"
     /> -->
-    <!-- using getters from the class -->
+    <!-- using getters reference from the class -->
     <img
       [src]="imagePath"
       [alt]="selectedUser.name"
