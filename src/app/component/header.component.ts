@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
     selector:"app-header",
     standalone:true,
     templateUrl:"./header.component.html",
+    styleUrl:"./header.component.css"
 })
 
 export class HeaderComponent{}
@@ -15,4 +16,8 @@ export class HeaderComponent{}
  * standalone -> true by default in 19v
  * 
  * standalone VS module based component
+ * 
+ * styles -> inline styles in list
+ * styleUrls -> multiple css files
+ * 
  */
