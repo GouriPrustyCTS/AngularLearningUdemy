@@ -1,6 +1,17 @@
 <div>
+    <button (click)="onSelectUser()">
+      <img [src]="imagePath" [alt]="name" />
+      <span>{{ name }} works!</span>
+    </button>
+  </div>
+
+<!-- 
+if using signals
+
+<div>
   <button (click)="onSelectUser()">
-    <img [src]="imagePath" [alt]="name" />
-    <span>{{ name }} works!</span>
+    <img [src]="imagePath()" [alt]="name()" />
+    <span>{{ name() }} works!</span>
   </button>
 </div>
+-->
