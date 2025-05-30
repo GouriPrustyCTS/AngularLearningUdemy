@@ -8,17 +8,15 @@ import { DUMMY_USERS } from '../../util/dummy-users';
   styleUrl: './user.component.css',
 })
 export class UserComponent {
-
   //selectedUser - by default it is public or if private then it cant be accessed - public property of the class - whatever u declare here will be available to the html template to access this
   selectedUser = DUMMY_USERS[0];
 
-  get imagePath(){
-    return 'assets/users/' + this.selectedUser.avatar
+  get imagePath() {
+    return 'assets/users/' + this.selectedUser.avatar;
   }
 
-  onSelectUser(){
-    console.log("Clicked");
-    
+  onSelectUser() {
+    console.log('Clicked');
+    this.selectedUser = DUMMY_USERS[1];
   }
-
 }
