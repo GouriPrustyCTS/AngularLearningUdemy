@@ -1,8 +1,13 @@
 <div>
   <button>
     <!-- property binding -->
-    <img
+    <!-- <img
       [src]="'assets/users/' + selectedUser.avatar"
+      [alt]="selectedUser.name"
+    /> -->
+    <!-- using getters from the class -->
+    <img
+      [src]="imagePath"
       [alt]="selectedUser.name"
     />
     <!-- this is called data binding (string interpolation) - only used btwn tags -->

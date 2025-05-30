@@ -12,4 +12,8 @@ export class UserComponent {
   //selectedUser - by default it is public or if private then it cant be accessed - public property of the class - whatever u declare here will be available to the html template to access this
   selectedUser = DUMMY_USERS[0];
 
+  get imagePath(){
+    return 'assets/users/' + this.selectedUser.avatar
+  }
+
 }
