@@ -1,5 +1,4 @@
-import { Component, signal, computed } from '@angular/core';
-import { DUMMY_USERS } from '../../util/dummy-users';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -8,18 +7,19 @@ import { DUMMY_USERS } from '../../util/dummy-users';
   styleUrl: './user.component.css',
 })
 export class UserComponent {
-  //selectedUser - by default it is public or if private then it cant be accessed - public property of the class - whatever u declare here will be available to the html template to access this
-  selectedUser = signal(DUMMY_USERS[0]); // signals are like useState() hook in react
+  @Input() avatar!: string;
+  @Input() name!: string;
 
-  // computed() method is used if signal is implemented - re compute when there is change noticed
-  imagePath = computed(() => 'assets/users/' + this.selectedUser().avatar);
-
-  // get imagePath() {
-  //   return 'assets/users/' + this.selectedUser.avatar;
-  // }
-
-  onSelectUser() {
-    console.log('Clicked');
-    this.selectedUser.set(DUMMY_USERS[1]);  // setState()
+  get imagePath() {
+    return 'assets/users/' + this.avatar;
   }
+  onSelectUser() {}
 }
+
+
+/**
+ * @Input() decorator in Angular is used for passing data from a parent component to a child component. - variable name should be same as parent template as it is coming from there. - and then from here goes to the templateURL to render
+ * 
+ * avatar!: string;, you're telling TypeScript, "I know this property (avatar) will eventually be assigned a value, even though I'm not assigning it here in the constructor or at the point of declaration. Trust me, it will be initialized.
+ * 
+ */

@@ -1,17 +1,6 @@
 <div>
-    <!-- // event binding; key - event and value - method name (call them) inside class -->
   <button (click)="onSelectUser()">
-    <!-- property binding -->
-    <!-- <img
-      [src]="'assets/users/' + selectedUser.avatar"
-      [alt]="selectedUser.name"
-    /> -->
-    <!-- using getters reference(act as property ref.) from the class -->
-    <img
-      [src]="imagePath()"
-      [alt]="selectedUser().name"
-    />
-    <!-- this is called data binding (string interpolation) - only used btwn tags -->
-    <span>{{ selectedUser().name }} works!</span>
+    <img [src]="imagePath" [alt]="name" />
+    <span>{{ name }} works!</span>
   </button>
 </div>

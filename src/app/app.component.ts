@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from "./component/header/header.component";
-import { UserComponent } from "./component/user/user.component";
+import { HeaderComponent } from './component/header/header.component';
+import { UserComponent } from './component/user/user.component';
+import { DUMMY_USERS } from './util/dummy-users';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,8 @@ import { UserComponent } from "./component/user/user.component";
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-
 export class AppComponent {
-  title = 'my-first-app';
+  users = DUMMY_USERS;
 }
 
 /**
@@ -21,4 +21,5 @@ selector ->  When Angular encounters <app-root></app-root> in your index.html (o
 imports ->  This property is used in standalone components (which this component appears to be, as it uses imports directly in @Component instead of NgModule). It declares other standalone components, directives, or pipes that this component needs to use in its template.
 if any other components needs to be used inside this current app component then u mention it
 
+what ever variable is written inside the class those are utillised by child componenet or templateUrl to render
  */
