@@ -1,7 +1,11 @@
 <div>
-    <button>
-        <img src="" alt=""/>
-        <!-- this is called data binding (string interpolation) -->
-        <span>{{selectedUser.name}} works!</span>
-    </button>
+  <button>
+    <!-- property binding -->
+    <img
+      [src]="'assets/users/' + selectedUser.avatar"
+      [alt]="selectedUser.name"
+    />
+    <!-- this is called data binding (string interpolation) - only used btwn tags -->
+    <span>{{ selectedUser.name }} works!</span>
+  </button>
 </div>
