@@ -3,18 +3,20 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './component/header/header.component';
 import { UserComponent } from './component/user/user.component';
 import { DUMMY_USERS } from './util/dummy-users';
+import { TasksComponent } from './component/tasks/tasks.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, UserComponent],
+  imports: [RouterOutlet, HeaderComponent, UserComponent, TasksComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
   users = DUMMY_USERS;
-
-  onSelectUser(id: string) {
-    console.log(`Selected user id : ${id}`);
+  user = "Select user to view their tasks..";
+  onSelectUser(name: string) {
+    console.log(`Selected user  : ${name}`);
+    this.user = name;
   }
 }
 
