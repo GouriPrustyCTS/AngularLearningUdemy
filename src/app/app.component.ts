@@ -13,10 +13,15 @@ import { TasksComponent } from './component/tasks/tasks.component';
 })
 export class AppComponent {
   users = DUMMY_USERS;
-  user = "Select user to view their tasks..";
-  onSelectUser(name: string) {
-    console.log(`Selected user  : ${name}`);
-    this.user = name;
+  selectedUserId?: string;
+
+  get selectedUser(){
+    return this.users.find((user) => user.id === this.selectedUserId);
+  }
+
+  onSelectUser(id: string) {
+    console.log(`Selected user id  : ${id}`);
+    this.selectedUserId = id;
   }
 }
 

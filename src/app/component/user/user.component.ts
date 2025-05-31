@@ -21,7 +21,7 @@ export class UserComponent {
   }
 
   onSelectUser() {
-    this.select.emit(this.user.name); // emitting the event
+    this.select.emit(this.user.id); // emitting the event
   }
 }
 
