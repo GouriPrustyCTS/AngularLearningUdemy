@@ -9,7 +9,7 @@
         [id]="users[0].id"
         [avatar]="users[0].avatar"
         [name]="users[0].name"
-        (select)="onSelectUser($event)"
+        (select)="onSelectUser($event)" 
       ></app-user>
     </li>
     <li>
@@ -46,7 +46,7 @@ from here i am prop drilling passing it to the child template to render
 (select) -> output event, emitted by child
 users -> coming from own class component
 
-(select)="onSelectUser($event)" ->  This is event binding.
+(select)="onSelectUser($event)" ->  This is event binding. - capture the event emitted by (select) event
 The parentheses () indicate that select is an output event that the app-user component can emit.
 When the select event is emitted by the app-user component, the onSelectUser() method of the AppComponent is called.
 $event is a special Angular keyword that represents the data emitted by the select event. In this case, the app-user component is emitting the id of the selected user, which then gets passed as the id argument to the onSelectUser method in AppComponent.

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, output, Output } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -11,18 +11,21 @@ export class UserComponent {
   @Input() name!: string;
   @Input() id!: string;
 
-  @Output() select = new EventEmitter();
+  // @Output() select = new EventEmitter();  // initialize an eventEmitter - to create our cusotm event select
+
+  select = output<string>();  // this is the modern method of declarying event emitter 
 
   get imagePath() {
     return 'assets/users/' + this.avatar;
   }
 
   onSelectUser() {
-    this.select.emit(this.id);
+    this.select.emit(this.id); // emitting the event
   }
 }
 
 /**
+ *
  * variables inside the class - properties
  * @Input() decorator in Angular is used for passing data from a parent component to a child component. - variable name should be same as parent template as it is coming from there. - and then from here goes to the templateURL to render
  *
