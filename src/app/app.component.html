@@ -4,18 +4,11 @@
 
 <main>
   <ul id="users">
-    <li>
-      <app-user [user]="users[0]" (select)="onSelectUser($event)"></app-user>
-    </li>
-    <li>
-      <app-user [user]="users[1]" (select)="onSelectUser($event)"></app-user>
-    </li>
-    <li>
-      <app-user [user]="users[2]" (select)="onSelectUser($event)"></app-user>
-    </li>
-    <li>
-      <app-user [user]="users[3]" (select)="onSelectUser($event)"></app-user>
-    </li>
+    @for (u of users; track u.id) {
+      <li>
+        <app-user [user]="u" (select)="onSelectUser($event)"></app-user>
+      </li>
+    }
   </ul>
   <app-tasks [name]="user"></app-tasks>
 </main>
@@ -33,4 +26,21 @@ When the select event is emitted by the app-user component, the onSelectUser() m
 $event is a special Angular keyword that represents the data emitted by the select event. In this case, the app-user component is emitting the id of the selected user, which then gets passed as the id argument to the onSelectUser method in AppComponent.
 
 
+track -- to differentiate btwn each obj by angular
+
+--------old codes
+
+
+    <li>
+      <app-user [user]="users[1]" (select)="onSelectUser($event)"></app-user>
+    </li>
+    <li>
+      <app-user [user]="users[2]" (select)="onSelectUser($event)"></app-user>
+    </li>
+    <li>
+      <app-user [user]="users[3]" (select)="onSelectUser($event)"></app-user>
+    </li>
+
+
 -->
+
