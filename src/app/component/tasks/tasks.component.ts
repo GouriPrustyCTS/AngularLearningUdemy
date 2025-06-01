@@ -3,6 +3,7 @@ import { TaskComponent } from '../task/task.component';
 import { dummyTasks } from '../../util/dummy-tasks';
 import { NewTaskComponent } from '../new-task/new-task.component';
 import { addTask } from '../../model/addTask.model';
+import { TasksService } from '../../service/tasks.service';
 
 @Component({
   selector: 'app-tasks',
@@ -11,6 +12,8 @@ import { addTask } from '../../model/addTask.model';
   styleUrl: './tasks.component.css',
 })
 export class TasksComponent {
+  constructor(private tasksService: TasksService) {} // dependency injection or else for every compoenent render handles different data (data inconsistency)
+
   @Input({ required: true }) name!: string;
   @Input({ required: true }) userId!: string;
   isAddingTask = false;
@@ -18,12 +21,12 @@ export class TasksComponent {
   tasks = dummyTasks;
 
   get selectedUserTasks() {
-    return this.tasks.filter((t) => t.userId === this.userId);
+    return this.tasksService.getUserTasks(this.userId);
   }
 
   onCompleteTask(id: string) {
     console.log('reachedtask id :', id);
-    this.tasks = this.tasks.filter((t) => t.id !== id);
+    this.tasksService.removeUserTask(id);
   }
 
   onAddTask() {
@@ -35,13 +38,7 @@ export class TasksComponent {
   }
 
   onAddedTask(taskData: addTask) {
-    this.tasks.push({
-      id: new Date().getTime().toString(),
-      title: taskData.title,
-      summary: taskData.summary,
-      dueDate: taskData.date,
-      userId: this.userId,
-    });
+    this.tasksService.addUserTask(taskData, this.userId);
     this.isAddingTask = false;
   }
 }
