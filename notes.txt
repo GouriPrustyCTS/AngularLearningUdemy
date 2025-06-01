@@ -96,3 +96,47 @@ Data Persistence
 
 Local Storage:
 A practical topic for simple client-side data persistence. Show how to interact with localStorage to store and retrieve data.
+
+
+_____________________________________________________Angular Modules(NgModule)_________________
+
+The @NgModule Decorator Properties:
+
+The @NgModule decorator takes a metadata object with several properties that define the module's characteristics:
+
+declarations:
+
+This array lists the components, directives, and pipes that belong to this specific module.
+Rule: A component, directive, or pipe can only be declared in one NgModule. If you try to declare it in multiple modules, Angular will throw an error.
+These declared items are visible within this module's templates.
+
+imports:
+This array lists other NgModules whose declared components, directives, and pipes are needed by the components declared in this module.
+When you import a module, you gain access to its exported declarations.
+Commonly imported modules include BrowserModule, FormsModule, HttpClientModule, RouterModule, and your own feature modules.
+
+exports:
+This array lists a subset of the declarations (components, directives, pipes) that this module makes available for other modules to use.
+If a component declared in ModuleA needs to be used in the template of a component declared in ModuleB, then ModuleA must export that component, and ModuleB must import ModuleA.
+You can also export other NgModules that you've imported, effectively re-exporting them (e.g., a shared module might export CommonModule and FormsModule).
+
+providers:
+This array lists the services that the module makes available for injection into components, directives, pipes, and other services.
+Services declared in providers are usually singleton instances within the injector scope where the module is provided.
+Note: With Angular's modern standalone components and providedIn: 'root', using providers in @NgModule is becoming less common for many services, as services can be directly made available application-wide or component-specific.
+
+bootstrap:
+This property is only used in the root NgModule (usually AppModule).
+It specifies the main component(s) that Angular should load and insert into the index.html file when the application starts. These are typically the application's top-level components.
+
+_________________
+
+AppModule is the main entry point.
+It needs to display a list of tasks and potentially other things. The task-related logic is encapsulated in TaskModule.
+AppModule imports TaskModule to gain access to TasksComponent (because TaskModule exports TasksComponent). So, AppModule's template can contain <app-tasks></app-tasks>.
+Inside TaskModule, TasksComponent (and perhaps NewTaskComponent or TaskComponent) might want to render individual items using a common "card" UI element.
+This "card" UI is provided by CardComponent, which is part of CardModule.
+TaskModule imports CardModule to gain access to CardComponent (because CardModule exports CardComponent). So, components within TaskModule can contain <app-card></app-card>.
+TaskModule also needs CommonModule for basic structural directives (*ngIf, *ngFor) and FormsModule for forms.
+CardModule is very focused, only declaring and exporting CardComponent.
+
