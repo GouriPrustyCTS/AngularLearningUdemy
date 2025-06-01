@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { TaskComponent } from '../task/task.component';
 import { dummyTasks } from '../../util/dummy-tasks';
 import { NewTaskComponent } from '../new-task/new-task.component';
@@ -12,7 +12,10 @@ import { TasksService } from '../../service/tasks.service';
   styleUrl: './tasks.component.css',
 })
 export class TasksComponent {
-  constructor(private tasksService: TasksService) {} // dependency injection or else for every compoenent render handles different data (data inconsistency)
+
+  // constructor(private tasksService: TasksService) {} // dependency injection or else for every compoenent render handles different data (data inconsistency)
+
+  private tasksService = inject(TasksService); // u can also use this to inject dependency into this class
 
   @Input({ required: true }) name!: string;
   @Input({ required: true }) userId!: string;
