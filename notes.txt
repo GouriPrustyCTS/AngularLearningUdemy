@@ -140,3 +140,13 @@ TaskModule imports CardModule to gain access to CardComponent (because CardModul
 TaskModule also needs CommonModule for basic structural directives (*ngIf, *ngFor) and FormsModule for forms.
 CardModule is very focused, only declaring and exporting CardComponent.
 
+________________IMPORTANT________________
+
+Directives
+Pipes for transforming
+Service and dependency injection
+RxJs
+Http req sending
+Forms handling
+Routing 
+deploy
