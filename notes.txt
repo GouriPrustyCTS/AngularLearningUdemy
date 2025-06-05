@@ -142,11 +142,14 @@ CardModule is very focused, only declaring and exporting CardComponent.
 
 ________________IMPORTANT________________
 
+Angular Modules
 Directives
 Pipes for transforming
 Service and dependency injection
 RxJs
 Http req sending
 Forms handling
-Routing 
+Routing - route guards
+ngRx - state management
+Testing - jasmin/karma
 deploy
